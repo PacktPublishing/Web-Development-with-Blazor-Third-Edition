@@ -1,0 +1,3 @@
+@page "/ThrowException"
+@rendermode @(new InteractiveWebAssemblyRenderMode(prerender: false))
+<button @onclick="@(()=> {throw new Exception("Something is broken"); })">Throw an exception</button>

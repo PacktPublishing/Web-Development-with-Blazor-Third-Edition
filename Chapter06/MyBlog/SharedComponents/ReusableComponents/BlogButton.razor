@@ -1,0 +1,112 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+
+<button type="@InternalButtonType" disabled="@Disabled" class="@InternalCssClass" title="@Title" @onclick="OnButtonClick">@ChildContent</button>
+
+
+@code
+{
+    [CascadingParameter]
+    public required EditContext EditContext { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    private bool? _disabled = null;
+    private string? _disabledHelpText = "";
+    private string formerrors = "";
+
+    [Parameter]
+    public bool Disabled
+    {
+        get
+        {
+            if (_disabled != null && (_disabled == null || _disabled.Value))
+            {
+                return _disabled!.Value;
+            }
+
+            if (EditContext == null)
+            {
+                return false;
+            }
+
+            formerrors = "";
+            if (!TryGetValidationMessages(out var validationmessages))
+            {
+                return true;
+            }
+
+            foreach (var m in validationmessages)
+            {
+                formerrors += m + (MarkupString)" \r\n";
+            }
+            return !EditContext.IsModified() || validationmessages.Any();
+        }
+
+        set => _disabled = value;
+
+    }
+
+    private bool TryGetValidationMessages(out string[] validationMessages)
+    {
+        validationMessages = Array.Empty<string>();
+        if (EditContext == null)
+        {
+            return false;
+        }
+
+        validationMessages = EditContext.GetValidationMessages().ToArray();
+        return !validationMessages.Any();
+    }
+
+    private string? Title => Disabled && !string.IsNullOrWhiteSpace(DisabledHelpText) ? DisabledHelpText : HelpText;
+
+    [Parameter]
+    public string? DisabledHelpText { get { return _disabledHelpText + (MarkupString)"\r\n" + formerrors; } set { _disabledHelpText = value; } }
+
+    [Parameter]
+    public string? HelpText { get; set; }
+
+    [Parameter] public EventCallback OnClick { get; set; }
+
+    private async Task OnButtonClick(EventArgs args)
+    {
+        if (OnClick.HasDelegate)
+        {
+            await OnClick.InvokeAsync(args);
+        }
+    }
+
+    private string InternalButtonType => OnClick.HasDelegate ? "button" : "submit";
+    
+    [Parameter] public ButtonType Type { get; set; }
+
+    private string InternalCssClass
+    {
+        get
+        {
+            return Type switch
+            {
+                ButtonType.Save => "btn btn-success",
+                ButtonType.Cancel => "btn btn-danger",
+                ButtonType.Delete => "btn btn-danger",
+                ButtonType.Remove => "btn btn-danger",
+                ButtonType.Select => "btn btn-primary",
+                _ => "btn btn-primary"
+            };
+        }
+    }
+
+
+
+    public enum ButtonType
+    {
+        Save,
+        Cancel,
+        Delete,
+        Remove,
+        Select
+    }
+}
+
+

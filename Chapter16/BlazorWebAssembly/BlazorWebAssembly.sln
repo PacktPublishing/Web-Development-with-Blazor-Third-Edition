@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34511.98
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebAssembly", "BlazorWebAssembly\BlazorWebAssembly.csproj", "{6FBEF970-4A47-4025-AFCC-5C28BF290AA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunningCode", "RunningCode\RunningCode.csproj", "{6D7F775D-09F3-4114-A212-5993F5D5378A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkiaSharpDemo", "SkiaSharpDemo\SkiaSharpDemo.csproj", "{598C1259-6646-4273-B623-B012EB6672D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorPrerender", "..\BlazorPrerender\BlazorPrerender\BlazorPrerender.csproj", "{2A337797-6E4B-4DB4-B1AB-5465F05C50A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorPrerender.Client", "..\BlazorPrerender\BlazorPrerender.Client\BlazorPrerender.Client.csproj", "{546DF510-EF4D-47DC-9A10-C3AC8F1F30FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FBEF970-4A47-4025-AFCC-5C28BF290AA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FBEF970-4A47-4025-AFCC-5C28BF290AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FBEF970-4A47-4025-AFCC-5C28BF290AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FBEF970-4A47-4025-AFCC-5C28BF290AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D7F775D-09F3-4114-A212-5993F5D5378A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D7F775D-09F3-4114-A212-5993F5D5378A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D7F775D-09F3-4114-A212-5993F5D5378A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D7F775D-09F3-4114-A212-5993F5D5378A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{598C1259-6646-4273-B623-B012EB6672D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598C1259-6646-4273-B623-B012EB6672D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598C1259-6646-4273-B623-B012EB6672D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598C1259-6646-4273-B623-B012EB6672D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A337797-6E4B-4DB4-B1AB-5465F05C50A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A337797-6E4B-4DB4-B1AB-5465F05C50A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A337797-6E4B-4DB4-B1AB-5465F05C50A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A337797-6E4B-4DB4-B1AB-5465F05C50A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{546DF510-EF4D-47DC-9A10-C3AC8F1F30FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{546DF510-EF4D-47DC-9A10-C3AC8F1F30FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{546DF510-EF4D-47DC-9A10-C3AC8F1F30FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{546DF510-EF4D-47DC-9A10-C3AC8F1F30FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C46FB65D-3EB9-421A-99FD-E34BC2BCCFAF}
+	EndGlobalSection
+EndGlobal

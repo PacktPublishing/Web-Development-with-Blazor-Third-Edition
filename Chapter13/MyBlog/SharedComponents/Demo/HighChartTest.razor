@@ -1,0 +1,21 @@
+﻿@page "/HighChartTest"
+<HighChart Json="@chartjson">
+
+</HighChart>
+
+@code {
+    string chartjson = @" {
+    chart: { type: 'pie' },
+    series: [{
+        data: [{
+            name: 'Does not look like Pacman',
+            color:'black',
+            y: 20,
+        }, {
+            name: 'Looks like Pacman',
+            color:'yellow',
+            y: 80
+        }]
+    }]
+}";
+}

@@ -1,0 +1,18 @@
+@inherits TestContext
+@code {
+        [Fact(DisplayName = "Test if js method 'showConfirm' is called upon using JS interop")]
+        public void ShouldShowConfirm()
+        {
+            // Arrange
+            var moduleInterop = this.JSInterop.SetupModule("/_content/SharedComponents/ReusableComponents/BlogButton.razor.js");
+            moduleInterop.Setup<bool>("showConfirm", "Are you sure?").SetResult(true);
+            var cut = Render(@<BlogButton OnClick="()=>{}" ConfirmMessage="Are you sure?"/>);
+            // Act
+            var buttons = cut.FindAll("button");
+            buttons.First().Click();
+            // Assert
+            JSInterop.VerifyInvoke("showConfirm");
+    }
+}
+
+

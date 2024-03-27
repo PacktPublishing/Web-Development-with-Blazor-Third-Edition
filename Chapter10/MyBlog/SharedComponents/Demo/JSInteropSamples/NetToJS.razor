@@ -1,0 +1,15 @@
+﻿@page "/nettojs"
+@inject IJSRuntime jsRuntime
+@rendermode InteractiveServer
+<h3>This is a demo how to call JavaScript from .NET</h3>
+
+
+<button @onclick="ShowAlert">Show Alert</button>
+@code {
+    protected async void ShowAlert()
+    {
+        IJSObjectReference jsRef = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "/_content/SharedComponents/Demo/JSInteropSamples/NetToJS.razor.js");
+        
+        await jsRef.InvokeVoidAsync("showAlert", "Hello from .NET");
+    }
+}

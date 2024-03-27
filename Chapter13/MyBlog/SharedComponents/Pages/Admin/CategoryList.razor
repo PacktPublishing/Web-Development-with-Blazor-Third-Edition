@@ -1,0 +1,69 @@
+@page "/admin/categories"
+@rendermode InteractiveServer
+@using Data.Models
+@using Data.Models.Interfaces
+@using SharedComponents
+@using SharedComponents.ReusableComponents
+@attribute [Authorize]
+@inject IBlogApi _api
+<h3>Categories</h3>
+
+<EditForm OnValidSubmit="Save" Model="Item">
+    <DataAnnotationsValidator />
+    <CustomCssClassProvider ProviderType="BootstrapFieldCssClassProvider" />
+    <BlogInputText @bind-Value="@Item.Name" Label="Name" />
+    <button class="btn btn-success" type="submit">Save</button>
+</EditForm>
+
+<ItemList Items="Items" DeleteEvent="@Delete" SelectEvent="@Select" ItemType="Category">
+    <ItemTemplate>
+        @{
+            var item = context as Category;
+            if (item != null)
+            {
+                @item.Name
+            }
+        }
+    </ItemTemplate>
+</ItemList>
+
+@code {
+    private List<Category> Items { get; set; } = new();
+    public Category Item { get; set; } = new();
+    protected async override Task OnInitializedAsync()
+    {
+        Items = (await _api.GetCategoriesAsync()) ?? new();
+        await base.OnInitializedAsync();
+    }
+    private async Task Delete(Category category)
+    {
+        try
+        {
+            await _api.DeleteCategoryAsync(category.Id!);
+            Items.Remove(category);
+        }
+        catch { }
+    }
+    private async Task Save()
+    {
+        try
+        {
+            await _api.SaveCategoryAsync(Item);
+            if (!Items.Contains(Item))
+            {
+                Items.Add(Item);
+            }
+            Item = new Category();
+        }
+        catch { }
+    }
+    private Task Select(Category category)
+    {
+        try
+        {
+            Item = category;
+        }
+        catch { }
+        return Task.CompletedTask;
+    }
+}

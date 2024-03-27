@@ -1,0 +1,20 @@
+{
+    "Id": "RoxieTheMusicalRaccoon",
+    "Title": "Roxie the Raccoon's Musical Talent",
+    "Text": "In the quiet corners of a sprawling city park, there lived a young raccoon named Roxie. Roxie was an ordinary raccoon in many ways, but she had a secret: she loved music. Every night, she would listen to the melodies drifting from the nearby homes, swaying to the rhythms under the moonlight.\n\nOne evening, Roxie discovered an old, abandoned piano near the park's edge. It was slightly out of tune, but to Roxie, it was perfect. With cautious paws, she began to press the keys, surprised to find that she could make her own music.\n\nNight after night, Roxie returned to the piano. She practiced tirelessly, her paws dancing over the keys with increasing confidence. The soft melodies echoed through the park, capturing the hearts of everyone who heard them.\n\nWord of the mysterious nighttime pianist spread throughout the neighborhood. People came from all over, hoping to catch a glimpse of the artist behind the beautiful music. Imagine their surprise when they discovered that the pianist was none other than a small raccoon!\n\nRoxie became a local sensation. Her music brought people together, creating a sense of community and joy. She showed everyone that talent can come in the most unexpected forms and that music has the power to transcend boundaries.\n\nAs the seasons changed, Roxie continued to play. Her music became a symbol of hope and beauty in the city, a reminder that magic can be found in the most ordinary places, if only one is willing to look – or listen.",
+    "PublishDate": "2023-11-16T00:00:00",
+    "Category": {
+        "Id": "MusicalTales",
+        "Name": "Musical Tales"
+    },
+    "Tags": [
+        {
+            "Id": "RaccoonMusician",
+            "Name": "Raccoon"
+        },
+        {
+            "Id": "InspiringTales",
+            "Name": "Inspiration"
+        }
+    ]
+}

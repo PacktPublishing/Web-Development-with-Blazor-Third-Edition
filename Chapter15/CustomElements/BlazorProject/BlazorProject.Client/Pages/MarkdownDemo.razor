@@ -1,0 +1,25 @@
+﻿@page "/md"
+@rendermode InteractiveWebAssembly
+JavaScript component:<br />
+<markdown-toolbar for="textarea" role="toolbar">
+    <md-bold class="btn btn-sm" tabindex="0">bold</md-bold>
+    <md-header class="btn btn-sm" tabindex="-1">header</md-header>
+    <md-italic class="btn btn-sm" tabindex="-1">italic</md-italic>
+    <md-quote class="btn btn-sm" tabindex="-1">quote</md-quote>
+    <md-code class="btn btn-sm" tabindex="-1">code</md-code>
+    <md-link class="btn btn-sm" tabindex="-1">link</md-link>
+    <md-image class="btn btn-sm" tabindex="-1">image</md-image>
+    <md-unordered-list class="btn btn-sm" tabindex="-1">unordered-list</md-unordered-list>
+    <md-ordered-list class="btn btn-sm" tabindex="-1">ordered-list</md-ordered-list>
+    <md-task-list class="btn btn-sm" tabindex="-1">task-list</md-task-list>
+    <md-mention class="btn btn-sm" tabindex="-1">mention</md-mention>
+    <md-ref class="btn btn-sm" tabindex="-1">ref</md-ref>
+    <md-strikethrough class="btn btn-sm" tabindex="-1">strikethrough</md-strikethrough>
+</markdown-toolbar>
+Blazor interactive component:<br />
+<textarea @bind="markdown" @bind:event="oninput" rows="6" class="mt-3 d-block width-full" id="textarea" contenteditable="false" spellcheck="false"></textarea>
+@markdown
+@code
+{
+    private string markdown = "Hello, **world**!";
+}

@@ -1,0 +1,28 @@
+@using SharedComponents.ReusableComponents
+@typeparam ItemType
+<h3>List</h3>
+<table>
+    <Virtualize Items="@Items" Context="item">
+        <tr>
+            <td>
+                <BlogButton OnClick="@(()=> {SelectEvent.InvokeAsync(item); })"> Select</BlogButton>
+            </td>
+            <td>@ItemTemplate(item)</td>
+            <td>
+                <BlogButton ConfirmMessage="Are you sure you want to delete this item?" Type="BlogButton.ButtonType.Delete" OnClick="@(()=> {DeleteEvent.InvokeAsync(item);})"> Delete</BlogButton>
+            </td>
+        </tr>
+    </Virtualize>
+</table>
+
+@code{
+    [Parameter]
+    public List<ItemType> Items { get; set; } = new();
+    [Parameter, EditorRequired]
+    public required RenderFragment<ItemType> ItemTemplate { get; set; }
+    [Parameter]
+    public EventCallback<ItemType> DeleteEvent { get; set; }
+    [Parameter]
+    public EventCallback<ItemType> SelectEvent { get; set; }
+
+}

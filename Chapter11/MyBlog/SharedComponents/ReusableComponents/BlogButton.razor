@@ -1,0 +1,128 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+@inject IJSRuntime jsRuntime
+
+<button type="@InternalButtonType" disabled="@Disabled" class="@InternalCssClass" title="@Title" @onclick="OnButtonClick">@ChildContent</button>
+
+
+@code
+{
+    IJSObjectReference jsmodule;
+    [Parameter]
+    public string? ConfirmMessage { get; set; } = null;
+    private async Task<bool> ShouldExecute()
+    {
+        if (ConfirmMessage != null)
+        {
+            jsmodule = await jsRuntime.InvokeAsync<IJSObjectReference>("import", "/_content/SharedComponents/ReusableComponents/BlogButton.razor.js");
+            return await jsmodule.InvokeAsync<bool>("showConfirm", ConfirmMessage);
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    [CascadingParameter]
+    public required EditContext EditContext { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    private bool? _disabled = null;
+    private string? _disabledHelpText = "";
+    private string formerrors = "";
+
+    [Parameter]
+    public new bool Disabled
+    {
+        get
+        {
+            if (_disabled == null || (_disabled != null && !_disabled.Value))
+            {
+                if (EditContext != null)
+                {
+                    formerrors = "";
+                    var validationmessages = EditContext?.GetValidationMessages();
+                    if (validationmessages != null)
+                    {
+                        foreach (var m in validationmessages)
+                        {
+                            formerrors += m + (MarkupString)" \r\n";
+                        }
+                    }
+                    return (!EditContext.IsModified() || !(validationmessages.Count() == 0));   
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return _disabled!.Value;
+            }
+
+        }
+        set => _disabled = value;
+    }
+
+    private string? Title => Disabled && !string.IsNullOrWhiteSpace(DisabledHelpText) ? DisabledHelpText : HelpText;
+
+    [Parameter]
+    public string? DisabledHelpText { get { return _disabledHelpText + (MarkupString)"\r\n" + formerrors; } set { _disabledHelpText = value; } }
+
+    [Parameter]
+    public string? HelpText { get; set; }
+
+    [Parameter] public EventCallback OnClick { get; set; }
+
+    private async Task OnButtonClick(EventArgs args)
+    {
+        if (OnClick.HasDelegate && await ShouldExecute())
+        {
+            await OnClick.InvokeAsync(args);
+        }
+
+    }
+
+    private string InternalButtonType => OnClick.HasDelegate ? "button" : "submit";
+
+    [Parameter] public ButtonType Type { get; set; }
+
+    private string InternalCssClass
+    {
+        get
+        {
+            switch (Type)
+            {
+                case ButtonType.Save:
+                    return "btn btn-success";
+                case ButtonType.Cancel:
+                    return "btn btn-danger";
+                case ButtonType.Delete:
+                    return "btn btn-danger";
+                case ButtonType.Remove:
+                    return "btn btn-danger";
+                case ButtonType.Select:
+                    return "btn btn-primary";
+                default:
+                    return "btn btn-primary";
+            };
+            
+        }
+
+    }
+
+
+
+    public enum ButtonType
+    {
+        Save,
+        Cancel,
+        Delete,
+        Remove,
+        Select
+    }
+}
+
+

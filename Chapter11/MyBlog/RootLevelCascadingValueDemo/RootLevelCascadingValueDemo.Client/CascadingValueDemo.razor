@@ -1,0 +1,12 @@
+﻿<h3>CascadingValueDemo</h3>
+@(Preferences?.DarkTheme)
+
+<button @onclick="()=>Preferences.DarkTheme=!Preferences.DarkTheme">Toggle</button>
+@code {
+
+    [CascadingParameter(Name = "Preferences")]
+    public Preferences Preferences { get; set; }
+
+    [Parameter]
+    public string RenderedAs { get; set; }
+}

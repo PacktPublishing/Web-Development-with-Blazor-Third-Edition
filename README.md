@@ -1,13 +1,13 @@
 # Web-Development-with-Blazor-Second-Edition
-Code Repository for [Web Development with Blazor, Second Edition](https://www.packtpub.com/product/web-development-with-blazor-second-edition/9781803241494) Published by Packt
+Code Repository for [Web Development with Blazor, Third Edition](https://www.packtpub.com/product/web-development-with-blazor-second-edition/9781803241494) Published by Packt
 
 **An in-depth practical guide for .NET developers to build interactive UIs with C#**
 
 ## About the book
 
-Blazor is an essential tool if you want to build interactive web apps without JavaScript, but it has a learning curve. Updated with the latest code in .NET 7 and C# 11 and written by someone who adopted Blazor early, this book will help you overcome the challenges associated with being a beginner with Blazor and teach you the best coding practices.
+Blazor is an essential tool if you want to build interactive web apps without JavaScript, but it has a learning curve. Updated with the latest code in .NET 8 and C# 12 and written by someone who adopted Blazor early, this book will help you overcome the challenges associated with being a beginner with Blazor and teach you the best coding practices.
 
-You’ll start by learning how to leverage the power of Blazor and exploring the full capabilities of both Blazor Server and Blazor WebAssembly. Then you'll move on to the practical part, centered around a sample project – a blog engine. You'll apply all your newfound knowledge about creating Blazor projects, the inner workings of Razor syntax, validating forms, and creating your own components.
+You’ll start by learning how to leverage the power of Blazor and exploring the full capabilities of both Blazor Server and Blazor WebAssembly. Then, you'll move on to the practical part, centered around a sample project – a blog engine. You'll apply all your newfound knowledge about creating Blazor projects, the inner workings of Razor syntax, validating forms, and creating your own components.
 
 This new edition also looks at source generators, dives deeper into Blazor WebAssembly with ahead-of-time, and includes a dedicated new chapter demonstrating how to move components of an existing JavaScript (Angular, React) or MVC-based website to Blazor or combine the two. You’ll also see how to use Blazor (Hybrid) together with .NET MAUI to create cross-platform desktop and mobile applications.
 

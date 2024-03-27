@@ -1,0 +1,13 @@
+﻿@page "/jstostaticnetwasm"
+@using System.Runtime.InteropServices.JavaScript
+@rendermode InteractiveWebAssembly
+<h3>This is a demo how to call .NET from JavaScript</h3>
+
+<button @onclick="ShowMessage">Show alert with message</button>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await JSHost.ImportAsync("jstonet", "../JSInteropSamples/JSToStaticNET.razor.js");
+    }
+}

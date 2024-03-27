@@ -1,0 +1,20 @@
+{
+    "Id": "OliverStarryQuest",
+    "Title": "Oliver the Raccoon's Starry Quest",
+    "Text": "In a quiet suburb on the edge of the city, under the expansive canopy of the night sky, lived a raccoon named Oliver. Oliver was unlike any raccoon his family knew; he was less interested in scavenging and more fascinated by the stars above.\n\nEach night, Oliver would climb to the highest point he could find—a tall oak tree—and gaze up at the constellations, pondering the vastness of the universe. His favorite constellation was Orion, and he would often spend hours just admiring its brilliance.\n\nOne evening, as Oliver sat perched on his branch, he noticed something different. A bright comet was streaking across the sky, painting a trail of light amongst the stars. Excited by this rare sight, Oliver decided he wanted to learn more about these celestial wonders.\n\nOver the following nights, Oliver visited a local high school where an astronomy club met. From a distance, he listened intently to the lessons, and bit by bit, he learned about the planets, stars, and galaxies far beyond his reach.\n\nOliver's newfound knowledge filled him with a sense of joy and curiosity. He began to chart the phases of the moon and the movement of the planets. The other animals in the neighborhood noticed Oliver's passion and started to join him in his nightly observations, forming a small, unlikely group of stargazers.\n\nOliver's quest for understanding the night sky brought the community together in a shared sense of wonder. He may not have traveled to the stars himself, but he brought the stars to everyone around him, making the night sky a little closer and the world around him a little brighter.",
+    "PublishDate": "2023-11-16T00:00:00",
+    "Category": {
+        "Id": "AstronomyAdventures",
+        "Name": "Astronomy Adventures"
+    },
+    "Tags": [
+        {
+            "Id": "RaccoonAstronomer",
+            "Name": "Raccoon"
+        },
+        {
+            "Id": "Stargazing",
+            "Name": "Stargazing"
+        }
+    ]
+}

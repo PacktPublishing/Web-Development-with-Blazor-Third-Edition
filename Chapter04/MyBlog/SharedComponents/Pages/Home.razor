@@ -1,0 +1,25 @@
+@page "/"
+@using Data.Models.Interfaces
+@using Data.Models
+@inject IBlogApi _api
+
+
+<ul>
+    @foreach (var p in posts)
+    {
+        <li>@p.Title</li>
+    }
+</ul>
+
+
+@code {
+
+    protected List<BlogPost> posts = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        posts = await _api.GetBlogPostsAsync(10, 0);
+        await base.OnInitializedAsync();
+    }
+
+}

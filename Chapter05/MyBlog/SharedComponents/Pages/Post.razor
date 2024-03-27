@@ -1,0 +1,35 @@
+@page "/post/{BlogPostId}"
+@using Data.Models.Interfaces
+@using Data.Models
+@inject IBlogApi _api
+@inject NavigationManager _navman
+
+@if (BlogPost != null)
+{
+    <PageTitle>@BlogPost.Title</PageTitle>
+    <HeadContent>
+        <meta property="og:title" content="@BlogPost.Title" />
+        <meta property="og:description" content="@(new string(BlogPost.Text.Take(100).ToArray()))" />
+        <meta property="og:image" content="@($"{_navman.BaseUri}/pathtoanimage.png")" />
+        <meta property="og:url" content="@_navman.Uri" />
+        <meta name="twitter:card" content="@(new string(BlogPost.Text.Take(100).ToArray()))" />
+    </HeadContent>
+    
+    <h2>@BlogPost.Title</h2>
+    @((MarkupString)BlogPost.Text)
+    
+}
+
+
+@code
+{
+    [Parameter]
+    public string BlogPostId { get; set; }
+    public BlogPost? BlogPost { get; set; }
+
+    protected async override Task OnParametersSetAsync()
+    {
+        BlogPost=await _api.GetBlogPostAsync(BlogPostId);
+        await base.OnParametersSetAsync();
+    }   
+}

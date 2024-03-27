@@ -1,0 +1,31 @@
+@using BlazorWebApp.Components
+@using SharedComponents.Pages
+@inherits TestContext
+  
+@code{
+    [Fact(DisplayName ="Checks if log in is showed")]
+    public void ShouldShowLogin()
+    {
+        // Arrange
+        this.AddTestAuthorization();
+        // Act
+        var cut = Render(@<LoginStatus />);
+        
+        // Assert that there is a link with the text Log in
+        Assert.Equal("Log in",cut.Find("a").InnerHtml);
+    }
+
+    [Fact(DisplayName = "Checks if logout is showed")]
+    public void ShouldShowLogout()
+    {
+        // Arrange
+        var authContext = this.AddTestAuthorization();
+        authContext.SetAuthorized("Testuser", AuthorizationState.Authorized);
+        // Act
+        var cut = Render(@<LoginStatus />);
+
+        // Assert that there is a link with the text Log out
+        Assert.Equal("Log out", cut.Find("a").InnerHtml);
+    }
+
+}

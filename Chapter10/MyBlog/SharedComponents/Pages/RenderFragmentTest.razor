@@ -1,0 +1,14 @@
+@page "/RenderFragmentTest"
+
+@for (int i = 0; i < 10; i++)
+{
+    @Render(i)
+}
+
+@code
+{
+    private RenderFragment Render(int number) 
+    {
+         return @<p>This is a render fragment @number</p>;
+    }
+}

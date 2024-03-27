@@ -1,0 +1,20 @@
+{
+    "Id": "RickyTheRaccoon",
+    "Title": "Ricky the Raccoon Meets a Tech Legend",
+    "Text": "Once upon a moonlit evening in the heart of the city, there lived a curious raccoon named Ricky. Unlike his peers, who were fond of rummaging through bins, Ricky had a peculiar interest in technology. He spent nights peering into office windows, fascinated by the glowing screens and clicking keyboards.\n\nOne night, as Ricky was exploring the city's tech district, he stumbled upon a meet-and-greet event with none other than Steve Sanderson, the renowned creator of Blazor. Ricky had heard tech enthusiasts speak highly of him, and he couldn't believe his luck!\n\nHiding behind a potted plant, Ricky watched in awe as Steve demonstrated the capabilities of Blazor, talking passionately about web development and .NET technologies. Ricky was mesmerized by the way Steve made complex topics seem so accessible and exciting.\n\nGathering his courage, Ricky decided to introduce himself. He waited until the crowd thinned and then, with a little raccoon bravado, he approached Steve. To Ricky's surprise, Steve was delighted to meet such an unusual fan. He even joked that Ricky could be a great mascot for Blazor, representing both the agility and intelligence that the framework offered.\n\nThey spent the next hour chatting. Steve was impressed by Ricky's curiosity and even showed him some basic coding tricks. Ricky couldn't believe he was getting a personal tech tutorial from a legend!\n\nAs dawn approached, Ricky knew it was time to head back to his urban jungle. Steve gifted him a small Blazor sticker, which Ricky wore proudly on his fur. It was a night to remember, and Ricky couldn't wait to explore more of the tech world, inspired by his new human friend.\n\nFrom that day forward, Ricky was not just any raccoon; he was Ricky the Tech Raccoon, with a Blazor sticker as his badge of honor, dreaming of codes and frameworks under the city lights.",
+    "PublishDate": "2023-11-16T00:00:00",
+    "Category": {
+        "Id": "TechTales",
+        "Name": "Technology Tales"
+    },
+    "Tags": [
+        {
+            "Id": "RaccoonStories",
+            "Name": "Raccoon"
+        },
+        {
+            "Id": "TechInspirations",
+            "Name": "Tech"
+        }
+    ]
+}

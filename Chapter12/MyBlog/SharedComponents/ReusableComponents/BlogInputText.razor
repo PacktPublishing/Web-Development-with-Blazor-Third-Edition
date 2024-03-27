@@ -1,0 +1,25 @@
+﻿@using System.Linq.Expressions
+<CascadingValue Value="CurrentEditContext">
+    @if(Label!=null)
+    {
+        <label for="@Id" class="form-label">@Label</label>
+    }
+    <InputText id="@Id" Value="@Value" ValueChanged="ValueChanged" ValueExpression="ValueExpression" />
+    <ValidationMessage For="@ValueExpression" />
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public string Id { get; set; } = Guid.NewGuid().ToString();
+    [Parameter]
+    public string? Label { get; set; }
+    [CascadingParameter]
+    public required EditContext CurrentEditContext { get; set; }
+    [Parameter]
+    public required string Value { get; set; }
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+    [Parameter]
+    public required Expression<Func<string>> ValueExpression { get; set; }
+
+}

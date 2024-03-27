@@ -1,0 +1,53 @@
+﻿@using SharedComponents.ReusableComponents
+@inject IBlogApi _api
+
+<h3>Comments</h3>
+@foreach (var c in comments)
+{
+    <div class="media mb-4">
+        <div class="media-body">
+            <h5 class="mt-0">@c.Name</h5>
+            <p>@c.Text</p>
+            <small class="text-muted">@c.Date</small>
+        </div>
+    </div>
+}
+@if (Model != null)
+{
+    <EditForm Enhance method="post" Model="@Model" OnValidSubmit="@ValidSubmitAsync" FormName="CommentForm">
+        <DataAnnotationsValidator />
+        <CustomCssClassProvider ProviderType="BootstrapFieldCssClassProvider" />
+        <BlogInputText @bind-Value="Model.Name" Label="Name" />
+        <BlogInputText @bind-Value="Model.Text" Label="Comment" />
+        <button type="submit" class="btn btn-success">Add Comment</button>
+    </EditForm>
+
+    <form  method="post" OnValidSubmit="@ValidSubmitAsync" FormName="CommentForm">
+        <DataAnnotationsValidator />
+        <CustomCssClassProvider ProviderType="BootstrapFieldCssClassProvider" />
+        <BlogInputText @bind-Value="Model.Name" Label="Name" />
+        <BlogInputText @bind-Value="Model.Text" Label="Comment" />
+        <button type="submit" class="btn btn-success">Add Comment</button>
+    </form>
+}
+@code {
+    [Parameter,EditorRequired]
+    public required string BlogPostId { get; set; }
+    [SupplyParameterFromForm]
+    public Comment? Model { get; set; } = new();
+    List<Comment> comments = new();
+
+    protected async override Task OnInitializedAsync()
+    {
+        comments = await _api.GetCommentsAsync(BlogPostId);
+    }
+
+    public async Task ValidSubmitAsync()
+    {
+        Model.Id = Guid.NewGuid().ToString();
+        Model.Date = DateTime.Now;
+        Model.BlogPostId = BlogPostId;
+        await _api.SaveCommentAsync(Model);
+        comments = await _api.GetCommentsAsync(BlogPostId);
+    }
+}

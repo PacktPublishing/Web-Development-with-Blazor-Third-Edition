@@ -1,0 +1,9 @@
+﻿@page "/customerrorboundary"
+<ErrorBoundary>
+    <ChildContent>
+		<ComponentWithError />
+	</ChildContent>
+	<ErrorContent>
+		<h1 style="color: red;">Oops... something broke</h1>
+	</ErrorContent>
+</ErrorBoundary>

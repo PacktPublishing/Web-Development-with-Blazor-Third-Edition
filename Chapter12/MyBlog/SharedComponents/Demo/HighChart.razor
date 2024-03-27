@@ -1,0 +1,29 @@
+﻿@inject Microsoft.JSInterop.IJSRuntime jsruntime
+
+<div>
+    <div id="@id.ToString()"></div>
+</div>
+
+@code
+{
+    [Parameter] public string Json { get; set; }
+    private string id { get; set; } = "Highchart" + Guid.NewGuid().ToString();
+
+
+    protected override void OnParametersSet()
+    {
+        StateHasChanged();
+        base.OnParametersSet();
+    }
+    IJSObjectReference jsmodule;
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!string.IsNullOrEmpty(Json))
+        {
+            jsmodule = await jsruntime.InvokeAsync<IJSObjectReference>("import", "/_content/SharedComponents/Demo/HighChart.razor.js");
+            await jsmodule.InvokeAsync<string>("loadHighchart", new object[] { id, Json });
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}
