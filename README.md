@@ -4,7 +4,7 @@ This is the code repository for [Web-Development-with-Blazor, Third Edition]( ht
 **A practical guide to start building interactive UIs with C# 12 and .NET 8**
 
 The author of this book is - Jimmy Engström
-## About the book(long descriptio in EPIC)
+## About the book
 
 Web Development with Blazor is your essential guide to building and deploying interactive web applications in C# – without relying on JavaScript.
 
