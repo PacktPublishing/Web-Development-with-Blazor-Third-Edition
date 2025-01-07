@@ -9,13 +9,13 @@
 @using SharedComponents.ReusableComponents
 @using SharedComponents.Interfaces
 @inject IBlogNotificationService _notificationService
-@implements IDisposable
+
 @attribute [Authorize]
 <EditForm Model="Post" OnValidSubmit="SavePostAsync">
     <DataAnnotationsValidator />
     <CustomCssClassProvider ProviderType="BootstrapFieldCssClassProvider" />
     <BlogNavigationLock @ref="NavigationLock" />
-
+    
     <InputText @bind-Value="Post.Title" />
     <ValidationMessage For="()=>Post.Title" />
     <InputDate @bind-Value="Post.PublishDate" />
@@ -63,23 +63,10 @@
     MarkdownPipeline pipeline = default!;
     protected override Task OnInitializedAsync()
     {
-        _notificationService.BlogPostChanged += PostChanged;
         pipeline = new MarkdownPipelineBuilder()
                  .UseEmojiAndSmiley()
                  .Build();
-
-
-
         return base.OnInitializedAsync();
-    }
-
-    private async void PostChanged(BlogPost post)
-    {
-        if(Post?.Id==post.Id)
-        {
-            Post = post;
-            await InvokeAsync(StateHasChanged);
-        }
     }
 
     protected async Task UpdateHTMLAsync()
@@ -133,11 +120,6 @@
         await _api.SaveBlogPostAsync(Post);
         NavigationLock?.CurrentEditContext.MarkAsUnmodified();
         _manager.NavigateTo("/admin/blogposts");
-    }
-
-    public void Dispose()
-    {
-        _notificationService.BlogPostChanged -= PostChanged;
     }
 
     override protected async Task OnAfterRenderAsync(bool firstRender)
