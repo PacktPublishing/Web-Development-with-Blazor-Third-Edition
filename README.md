@@ -1,3 +1,6 @@
+
+<b><p align='center'>[![Packt Sale](https://static.packt-cdn.com/assets/images/humble+bundle/mega_bundle_dot_net_2.png)](https://www.humblebundle.com/books/c-and-net-mega-bundle-packt-books?view=tXxHRda-uIQk?utm_medium=affiliate)</p></b> 
+
 # Web-Development-with-Blazor, Third-Edition
 This is the code repository for [Web-Development-with-Blazor, Third Edition]( https://www.packtpub.com/product/web-development-with-blazor-third-edition/9781835465912), published by Packt.
 
